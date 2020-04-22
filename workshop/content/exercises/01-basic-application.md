@@ -76,13 +76,13 @@ To run the Flask application we run Python on the `wsgi.py` file. This is define
 Build the container image:
 
 ```execute
-podman build -t flask-app .
+docker build -t flask-app .
 ```
 
 and run it:
 
 ```execute
-podman run --rm -p 8080:8080 flask-app
+docker run --rm -p 8080:8080 flask-app
 ```
 
 Because it is a web service, we need to expose the port that the requests are being accepted on. This is done using the `-p` option, with the values being the external port to be used, and the port the web server inside of the container is listening on. In this case we used the same port.

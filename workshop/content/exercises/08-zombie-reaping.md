@@ -82,19 +82,19 @@ cd ~/flask-app-v4
 Build the image:
 
 ```execute
-podman build --no-cache -t flask-app .
+docker build --no-cache -t flask-app .
 ```
 
 and run the image:
 
 ```execute
-podman run --rm -p 8080:8080 flask-app
+docker run --rm -p 8080:8080 flask-app
 ```
 
 Now stop the container using:
 
 ```execute-2
-podman kill -s TERM `podman ps -ql`
+docker kill -s TERM `docker ps -ql`
 ```
 
 The container should still shutdown cleanly and without delay.

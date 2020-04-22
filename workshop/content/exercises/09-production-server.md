@@ -73,13 +73,13 @@ The `wsgi.py` file being used already had the WSGI application entry point calla
 Build the image by running:
 
 ```execute
-podman build --no-cache -t flask-app .
+docker build --no-cache -t flask-app .
 ```
 
 Run the image:
 
 ```execute
-podman run --rm -p 8080:8080 flask-app
+docker run --rm -p 8080:8080 flask-app
 ```
 
 and make a web request:
@@ -93,5 +93,5 @@ Although a production grade server, if you needed to do some code changes in the
 Stop the container:
 
 ```execute-2
-podman kill -s TERM `podman ps -ql`
+docker kill -s TERM `docker ps -ql`
 ```

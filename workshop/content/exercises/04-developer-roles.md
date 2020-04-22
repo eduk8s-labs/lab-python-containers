@@ -65,13 +65,13 @@ Copying the files into the container image has also been simplified by laying ou
 Build the new version of the image:
 
 ```execute
-podman build --no-cache -t flask-app .
+docker build --no-cache -t flask-app .
 ```
 
 and run the image:
 
 ```execute
-podman run --rm -p 8080:8080 flask-app
+docker run --rm -p 8080:8080 flask-app
 ```
 
 Send a request to the application:

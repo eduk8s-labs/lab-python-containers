@@ -13,7 +13,7 @@ cd ~/common-base-v2
 Build the image:
 
 ```execute
-podman build -t common-base:v2 .
+docker build -t common-base:v2 .
 ```
 
 Change to the `~/python-base-v2` sub directory.
@@ -25,7 +25,7 @@ cd ~/python-base-v2
 We have made some changes here as well so rebuild it:
 
 ```execute
-podman build --no-cache -t python-base:v2 .
+docker build --no-cache -t python-base:v2 .
 ```
 
 Finally change to the `~/flask-app-v3` sub directory:
@@ -37,13 +37,13 @@ cd ~/flask-app-v3
 Build it also:
 
 ```execute
-podman build --no-cache -t flask-app .
+docker build --no-cache -t flask-app .
 ```
 
 Run the image:
 
 ```execute
-podman run --rm -p 8080:8080 flask-app
+docker run --rm -p 8080:8080 flask-app
 ```
 
 Make a request against it:
@@ -55,7 +55,7 @@ curl http://localhost:8080
 and create an interactive shell in the container:
 
 ```execute-2
-podman exec -it `podman ps -ql` bash
+docker exec -it `docker ps -ql` bash
 ```
 
 From the interactive terminal work out which Python executable is in the `PATH`.

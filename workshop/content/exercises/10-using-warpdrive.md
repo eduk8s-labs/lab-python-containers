@@ -53,13 +53,13 @@ In the case of starting the application, seeing that a `wsgi.py` file is provide
 To see this in action, build the image:
 
 ```execute
-podman build --no-cache -t flask-app .
+docker build --no-cache -t flask-app .
 ```
 
 and run the application:
 
 ```execute
-podman run --rm -p 8080:8080 flask-app
+docker run --rm -p 8080:8080 flask-app
 ```
 
 Check it works by making a web request.
@@ -71,13 +71,13 @@ curl http://localhost:8080
 Stop the container:
 
 ```execute-2
-podman kill -s TERM `podman ps -ql`
+docker kill -s TERM `docker ps -ql`
 ```
 
 Now try running the container again, but this time set the environment variable `WARPDRIVE_SERVER_TYPE=gunicorn`.
 
 ```execute
-podman run --rm -p 8080:8080 -e WARPDRIVE_SERVER_TYPE=gunicorn flask-app
+docker run --rm -p 8080:8080 -e WARPDRIVE_SERVER_TYPE=gunicorn flask-app
 ```
 
 Check that this also works by making a web request.
@@ -89,7 +89,7 @@ curl http://localhost:8080
 Stop the container:
 
 ```execute-2
-podman kill -s TERM `podman ps -ql`
+docker kill -s TERM `docker ps -ql`
 ```
 
 What you will see this time is that the `gunicorn` was run instead of `mod_wsgi-server`. This is because `warpdrive` knows how to run all the popular WSGI servers `gunicorn`, `mod_wsgi-express`, `uwsgi` and `waitress`, and will supply a set of default options which ensures they will work correctly in a container and with reasonable capacity allocated.

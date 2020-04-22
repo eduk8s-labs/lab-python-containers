@@ -19,7 +19,7 @@ These are the same scripts as we used in the last version of the Flask applicati
 Build the base image.
 
 ```execute
-podman build --no-cache -t python-base:v3 .
+docker build --no-cache -t python-base:v3 .
 ```
 
 Change to the `~/flask-app-v7` sub directory:
@@ -39,13 +39,13 @@ Now we only have the `src` directory and the application code. There are no scri
 Build the application image:
 
 ```execute
-podman build --no-cache -t flask-app .
+docker build --no-cache -t flask-app .
 ```
 
 and run it:
 
 ```execute
-podman run --rm -p 8080:8080 flask-app
+docker run --rm -p 8080:8080 flask-app
 ```
 
 Make a web request:
@@ -57,5 +57,5 @@ curl http://localhost:8080
 and shutdown the container when done.
 
 ```execute-2
-podman kill -s TERM `podman ps -ql`
+docker kill -s TERM `docker ps -ql`
 ```

@@ -141,10 +141,10 @@ It is necessary to check that the activation script for the Python virtual envir
 
 We also set again the environment variables we set in the `Dockerfile` in case the profile scripts need to be run again to restore the environment after being stripped for a managed sub process.
 
-With the profile scripts set up in this case, they will always be run for the main command run for the container. They will also be run if using `podman exec` so long as it is an interactive shell or a shell script that is being run. If running an executable directly, such as `python`, you would use a command of the form:
+With the profile scripts set up in this case, they will always be run for the main command run for the container. They will also be run if using `docker exec` so long as it is an interactive shell or a shell script that is being run. If running an executable directly, such as `python`, you would use a command of the form:
 
 ```
-podman exec <container-id> bash -c "python ..."
+docker exec <container-id> bash -c "python ..."
 ```
 
 The execution of the command in a sub shell will ensure the profile scripts get run. If it is a command that you would regularly run, it is better that you add a script to your application code which wraps it up so you don't have to worry about using a sub shell.

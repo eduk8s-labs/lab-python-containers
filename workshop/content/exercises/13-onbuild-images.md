@@ -30,10 +30,10 @@ ONBUILD EXPOSE 8080
 
 These are the instructions we had in the `Dockerfile` for the Flask application, but where except for the `FROM` instruction, each is prefixed with `ONBUILD`.
 
-Build the base image. Note that when doing this we are supplying to `podman build` the `--format docker` option. This is because `ONBUILD` is not part of the OCI specification for portable container images, and instead is a feature of the original `docker` image format.
+Build the base image. Note that when doing this we are supplying to `docker build` the `--format docker` option. This is because `ONBUILD` is not part of the OCI specification for portable container images, and instead is a feature of the original `docker` image format.
 
 ```execute
-podman build --format docker -t python-onbuild:v1 .
+docker build --format docker -t python-onbuild:v1 .
 ```
 
 These `ONBUILD` instructions will be recorded in the container image manifest, but no action is take at the time the base image is built.
@@ -61,7 +61,7 @@ Beyond specifying the base image, there are no additional instructions.
 Build the image though:
 
 ```execute
-podman build --format docker --no-cache -t flask-app .
+docker build --format docker --no-cache -t flask-app .
 ```
 
 and you will see that the instructions from the base image which were prefixed with `ONBUILD` were executed in the context of building the derived image instead.
@@ -71,7 +71,7 @@ Thus, the application source files were copied from the directory where the subs
 Run the container image:
 
 ```execute
-podman run --rm -p 8080:8080 flask-app
+docker run --rm -p 8080:8080 flask-app
 ```
 
 and make a web request:
@@ -85,7 +85,7 @@ The applications works just as it did before.
 Stop the container:
 
 ```execute-2
-podman kill -s TERM `podman ps -ql`
+docker kill -s TERM `docker ps -ql`
 ```
 
 Although the `ONBUILD` feature is interesting, that it is not part of the OCI specification it may not be supported by container platforms that support building images for you. Only use it and become dependent on it if you know that your target platforms will support it.

@@ -1,6 +1,6 @@
 Any log messages recorded by an application should be logged to the console, either `stdout` or `stderr`. An application should not log to a file.
 
-The reason for logging to the console is it allow the container runtime to capture the logs from all containers and make then accessible, or pipe them into a log aggregation system. In the case of `podman`, logs can be accessed using the `podman logs` command.
+The reason for logging to the console is it allow the container runtime to capture the logs from all containers and make then accessible, or pipe them into a log aggregation system. In the case of `docker`, logs can be accessed using the `docker logs` command.
 
 If your application logs to a file, the log file is only usually accessible within the container. To view the applications logs you would need to access the container. If log messages are sent to a file, and the log file is not truncated periodically, you could eventually exceed any file system quota granted to the container and cause a failure of the application.
 
@@ -27,7 +27,7 @@ These are needed because Linux environments often default to being setup to use 
 We can test that setting `PYTHONUNBUFFERED=1` solves the problem for `stdout` by running:
 
 ```execute
-podman run --rm -p 8080:8080 -e PYTHONUNBUFFERED=1 flask-app
+docker run --rm -p 8080:8080 -e PYTHONUNBUFFERED=1 flask-app
 ```
 
 Trigger a web request again using:
@@ -50,7 +50,7 @@ A limitation of setting environment variables in the `Dockerfile` is that they c
 
 A further issue is that if an application executes or manages sub processes, it can strip all but a minimal set of environment variables, meaning they will not be set for the sub processes. By setting the environment variables in the `Dockerfile`, it makes it potentially necessary to duplicate the settings in script files in the container image still.
 
-If the environment only needed to be set for the initial command the container is run with, they could be set in the `container-entrypoint` script. If this were done though they would not be set were `podman exec` used to run commands in the running container separate to the initial command. It also doesn't help with sub processes where the environment has been stripped.
+If the environment only needed to be set for the initial command the container is run with, they could be set in the `container-entrypoint` script. If this were done though they would not be set were `docker exec` used to run commands in the running container separate to the initial command. It also doesn't help with sub processes where the environment has been stripped.
 
 There is a solution which goes part way to addressing these issues, but the need to start adding more and more custom configuration starts to become a problem if in the long term you need to create distinct images for different applications. This is because you start duplicating common configuration in multiple places, which makes it much harder to update and maintain.
 

@@ -21,13 +21,13 @@ We have also added a `container-usage` script and set it as the default command 
 Build the image:
 
 ```execute
-podman build -t common-base:v1 .
+docker build -t common-base:v1 .
 ```
 
 and run the image to see the default usage message:
 
 ```execute
-podman run --rm common-base:v1
+docker run --rm common-base:v1
 ```
 
 We could add to this common base image what we need for Python, but because we may want to create application images for other languages at some point, we can create an intermediate base image just for Python. This Python image can inherit from the common base image we just created though so we aren't duplicating it.
@@ -56,11 +56,11 @@ We have also set the environment variables discussed previously for setting UTF-
 Build the image:
 
 ```execute
-podman build -t python-base:v1 .
+docker build -t python-base:v1 .
 ```
 
 Run the image to verify the environment variables have been set:
 
 ```execute
-podman run --rm python-base:v1
+docker run --rm python-base:v1
 ```

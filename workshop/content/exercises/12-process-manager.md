@@ -33,7 +33,7 @@ In other words, if the directory `/opt/app-root/etc/supervisor` exists, it is as
 Build this base image:
 
 ```execute
-podman build --no-cache -t python-base:v4 .
+docker build --no-cache -t python-base:v4 .
 ```
 
 Now change to the `~/flask-app-v8` sub directory.
@@ -70,13 +70,13 @@ This configures `supervisord` to run `warpdrive start`. You could stick any numb
 Build the application image:
 
 ```execute
-podman build --no-cache -t flask-app .
+docker build --no-cache -t flask-app .
 ```
 
 and run it:
 
 ```execute
-podman run --rm -p 8080:8080 flask-app
+docker run --rm -p 8080:8080 flask-app
 ```
 
 You will see that `supervisord` is started and from it our application is hosted using `mod_wsgi-express`.
@@ -90,7 +90,7 @@ curl http://localhost:8080
 Now create an interactive shell within the container:
 
 ```execute-2
-podman exec -it `podman ps -ql` bash
+docker exec -it `docker ps -ql` bash
 ```
 
 In the container, run `supervisorctl status` to check the state of any managed applications.

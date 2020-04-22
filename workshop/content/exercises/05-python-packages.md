@@ -26,7 +26,7 @@ The second is to ensure that Python packages required by the Python application 
 
 The third is that we need to ensure that the Python virtual environment is activated for the Python application.
 
-And a fourth, is that the Python virtual environment is also activated for any application run separately in the container using `podman exec`.
+And a fourth, is that the Python virtual environment is also activated for any application run separately in the container using `docker exec`.
 
 The first three of these are easy enough, but the fourth is harder than it looks especially if for some reason you need to use a non system Python installation, such as that from the Software Collections Library (SCL) packages for RHEL and CentOS as they need a separate activation step so the correct shared libraries are found.
 
