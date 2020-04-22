@@ -10,7 +10,7 @@ spec:
   content: github.com/eduk8s-labs/lab-python-containers
   duration: 60m
   session:
-    budget: medium
+    budget: small
     applications:
       terminal:
         enabled: true
