@@ -30,10 +30,10 @@ ONBUILD EXPOSE 8080
 
 These are the instructions we had in the `Dockerfile` for the Flask application, but where except for the `FROM` instruction, each is prefixed with `ONBUILD`.
 
-Build the base image. Note that when doing this we are supplying to `docker build` the `--format docker` option. This is because `ONBUILD` is not part of the OCI specification for portable container images, and instead is a feature of the original `docker` image format.
+Build the base image.
 
 ```execute
-docker build --format docker -t python-onbuild:v1 .
+docker build -t python-onbuild:v1 .
 ```
 
 These `ONBUILD` instructions will be recorded in the container image manifest, but no action is take at the time the base image is built.
@@ -61,7 +61,7 @@ Beyond specifying the base image, there are no additional instructions.
 Build the image though:
 
 ```execute
-docker build --format docker --no-cache -t flask-app .
+docker build --no-cache -t flask-app .
 ```
 
 and you will see that the instructions from the base image which were prefixed with `ONBUILD` were executed in the context of building the derived image instead.
