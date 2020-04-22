@@ -17,5 +17,3 @@ spec:
         layout: split
       docker:
         enabled: true
-      registry:
-        enabled: true
