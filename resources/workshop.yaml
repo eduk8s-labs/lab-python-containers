@@ -1,19 +1,21 @@
 apiVersion: training.eduk8s.io/v1alpha1
 kind: Workshop
 metadata:
-  name: lab-markdown-sample
+  name: lab-python-containers
 spec:
   vendor: eduk8s.io
-  title: Markdown Sample
-  description: A sample workshop using Markdown
-  url: https://github.com/eduk8s/lab-markdown-sample
-  #image: quay.io/eduk8s/lab-markdown-sample:master
-  content: github.com/eduk8s/lab-markdown-sample
-  duration: 15m
+  title: Python Containers
+  description: An interactive workshop on constructing images for Python applications.
+  url: https://github.com/eduk8s-labs/lab-python-containers
+  content: github.com/eduk8s-labs/lab-python-containers
+  duration: 60m
   session:
-    budget: small
+    budget: medium
     applications:
-      console:
+      terminal:
         enabled: true
-      editor:
+        layout: split
+      docker:
+        enabled: true
+      registry:
         enabled: true
