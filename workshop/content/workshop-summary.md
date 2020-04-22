@@ -1,1 +1,3 @@
-This is the last page of the workshop. Include in this page a summary of the workshop and any links to resources relevant to the workshop. This ensures anyone doing the workshop has material they can research later to learn more.
+In this workshop you have learnt various techniques you can apply when creating containers images for applications using the Python programming language.
+
+When building images it is always best to organise everything such that the container can run as a non root user. For the case of the Python programming language it is recommended that you use a Python virtual environment even though the container image only hosts the one application. This avoids conflicts with packages that may have been installed as part of the operating system, into the system Python installation. Using a Python virtual environment also means you can avoid using the root user during builds and at runtime.
