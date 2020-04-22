@@ -1,12 +1,33 @@
 modules:
     workshop-overview:
         name: Workshop Overview
-        exit_sign: Setup Environment
-    setup-environment:
-        name: Setup Environment
         exit_sign: Start Workshop
-    exercises/01-sample-content:
-        name: Sample Content
+    exercises/01-basic-application:
+        name: Basic Application
+    exercises/02-application-logs:
+        name: Application Logs
+    exercises/03-derived-images:
+        name: Derived Images
+    exercises/04-developer-roles:
+        name: Developer Roles
+    exercises/05-python-packages:
+        name: Python Packages
+    exercises/06-user-environment:
+        name: User Environment
+    exercises/07-profile-scripts:
+        name: Profile Scripts
+    exercises/08-zombie-reaping:
+        name: Zombie Reaping
+    exercises/09-production-server:
+        name: Production Server
+    exercises/10-using-warpdrive:
+        name: Using Warpdrive
+    exercises/11-bundling-scripts:
+        name: Bundling Scripts
+    exercises/12-process-manager:
+        name: Process Manager
+    exercises/13-onbuild-images:
+        name: Onbuild Images
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop

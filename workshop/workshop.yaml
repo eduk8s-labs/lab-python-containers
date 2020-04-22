@@ -3,6 +3,17 @@ name: Python Containers
 modules:
     activate:
     - workshop-overview
-    - setup-environment
-    - exercises/01-sample-content
+    - exercises/01-basic-application
+    - exercises/02-application-logs
+    - exercises/03-derived-images
+    - exercises/04-developer-roles
+    - exercises/05-python-packages
+    - exercises/06-user-environment
+    - exercises/07-profile-scripts
+    - exercises/08-zombie-reaping
+    - exercises/09-production-server
+    - exercises/10-using-warpdrive
+    - exercises/11-bundling-scripts
+    - exercises/12-process-manager
+    - exercises/13-onbuild-images
     - workshop-summary
