@@ -8,7 +8,7 @@ spec:
   description: An interactive workshop on constructing images for Python applications.
   url: https://github.com/eduk8s-labs/lab-python-containers
   content: github.com/eduk8s-labs/lab-python-containers
-  duration: 60m
+  duration: 75m
   session:
     budget: small
     applications:

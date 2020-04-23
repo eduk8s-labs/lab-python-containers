@@ -5,7 +5,7 @@ metadata:
 spec:
   portal:
     capacity: 1
-    expires: 60m
+    expires: 75m
     orphaned: 5m
   workshops:
   - name: lab-python-containers
