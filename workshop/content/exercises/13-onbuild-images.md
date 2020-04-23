@@ -88,4 +88,4 @@ Stop the container:
 docker kill -s TERM `docker ps -ql`
 ```
 
-Although the `ONBUILD` feature is interesting, that it is not part of the OCI specification it may not be supported by container platforms that support building images for you. Only use it and become dependent on it if you know that your target platforms will support it.
+Although the `ONBUILD` feature is interesting, it is not part of the OCI specification for container images and it may not be supported by container platforms that support building images for you. Only use it and become dependent on it if you know that your target platforms will support it.

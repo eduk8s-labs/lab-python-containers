@@ -1,4 +1,4 @@
-That was an extended detour but an important one. The result is that we now have a basic recipe for creating a container image which will be portable, offers a better level of security, and can accomodate the security policies of different container runtimes. Time to move onto creating a basic Python web service. For this we will use a Flask application.
+To create a basic Python web service we will use a Flask application.
 
 Change to the `~/flask-app-v1` sub directory.
 
@@ -65,9 +65,11 @@ CMD [ "python3", "wsgi.py ]
 EXPOSE 8080
 ```
 
-The `RUN` instruction runs `pip3` to install the Python packages listed in the `requirements.txt` file and fixes up the permissions afterwards.
+The remainder of the ``Dockerfile`` is the boilerplate needed to set up a secure image that can run as any non ``root`` user. Details for this were covered by the separate workshop on building secure images.
 
-Note that we also had to install the system package `python3-pip` to have `pip3` available in the image.
+For this example Python application, the `RUN` instruction runs `pip3` to install the Python packages listed in the `requirements.txt` file and fixes up the permissions afterwards.
+
+Note that we also had to install the system package `python3-pip`, on top of the boilerplate steps mentioned, to have `pip3` available in the image.
 
 We used the `--no-cache-dir` option to `pip3` as there is no point caching the downloads. This is because the next build is going to start over fresh anyway. If we don't disable caching, it will just make our image use more space.
 
